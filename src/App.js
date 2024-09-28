@@ -34,6 +34,11 @@ function App() {
     setIsEditing(true);
     setCurrentTodoIndex(index);
   };
+const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      addTodo();
+    }
+  };
 
   return (
     <div className="max-w-md w-500 pb-4 bg-slate-600 rounded-md mx-auto mt-10">
@@ -44,6 +49,7 @@ function App() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+           onKeyDown={handleKeyPress}
           placeholder="Enter a new task"
         />
         <button
